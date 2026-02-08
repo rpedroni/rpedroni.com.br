@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Ricardo Pedroni</title>
+  <meta name="description" content="CTO, explorador de IA, pai de 3 terroristas.">
+  <meta property="og:title" content="Ricardo Pedroni">
+  <meta property="og:description" content="CTO, explorador de IA, pai de 3 terroristas.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rpedroni.com.br">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ricardo Pedroni">
+  <meta name="twitter:description" content="CTO, explorador de IA, pai de 3 terroristas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;0,9..40,900;1,9..40,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --gold: #ffd700;
+      --orange: #ff8c00;
+      --text: #e0e0e0;
+      --text-dim: #666;
+      --text-dimmer: #444;
+      --font-display: 'DM Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 120px 0 80px;
+      position: relative;
+    }
+
+    .hero-name-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2.5rem, 7vw, 4rem);
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .duck-pixel {
+      width: 1px;
+      height: 1px;
+      position: relative;
+      transform: scale(3);
+      transform-origin: top left;
+      flex-shrink: 0;
+      animation: duck-bob 3s ease-in-out infinite;
+      box-shadow:
+        4px 0 #ffd700, 5px 0 #ffd700, 6px 0 #ffd700,
+        3px 1px #ffd700, 4px 1px #ffd700, 5px 1px #ffd700, 6px 1px #ffd700, 7px 1px #ffd700,
+        3px 2px #ffd700, 4px 2px #ffd700, 5px 2px #111111, 6px 2px #ffd700, 7px 2px #ffd700,
+        3px 3px #ffd700, 4px 3px #ffd700, 5px 3px #ffd700, 6px 3px #ffd700, 7px 3px #ffd700, 8px 3px #ff8c00, 9px 3px #ff8c00,
+        3px 4px #ffd700, 4px 4px #ffd700, 5px 4px #ffd700, 6px 4px #ffd700,
+        0px 5px #ffd700, 1px 5px #ffd700, 2px 5px #ffd700, 3px 5px #ffd700, 4px 5px #ffd700, 5px 5px #ffd700, 6px 5px #ffd700, 7px 5px #ffd700,
+        0px 6px #ffd700, 1px 6px #ffd700, 2px 6px #ffc800, 3px 6px #ffc800, 4px 6px #ffc800, 5px 6px #ffc800, 6px 6px #ffd700, 7px 6px #ffd700, 8px 6px #ffd700,
+        0px 7px #ffd700, 1px 7px #ffc800, 2px 7px #ffc800, 3px 7px #ffc800, 4px 7px #ffc800, 5px 7px #ffc800, 6px 7px #ffc800, 7px 7px #ffd700, 8px 7px #ffd700,
+        1px 8px #ffd700, 2px 8px #ffd700, 3px 8px #ffd700, 4px 8px #ffd700, 5px 8px #ffd700, 6px 8px #ffd700, 7px 8px #ffd700,
+        2px 9px #ff8c00, 3px 9px #ff8c00, 5px 9px #ff8c00, 6px 9px #ff8c00;
+    }
+
+    .duck-wrapper {
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    @keyframes duck-bob {
+      0%, 100% { transform: scale(3) translateY(0); }
+      50% { transform: scale(3) translateY(-2px); }
+    }
+
+    .tagline {
+      font-family: var(--font-mono);
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+      color: var(--text-dim);
+      min-height: 1.8em;
+      margin-bottom: 32px;
+    }
+
+    .tagline .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.1em;
+      background: var(--gold);
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .available {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--text-dimmer);
+      font-style: italic;
+      letter-spacing: 0.02em;
+    }
+
+    .available::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-right: 8px;
+      opacity: 0.5;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.7; }
+    }
+
+    /* ── CARDS ── */
+    .cards-section {
+      padding: 60px 0;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid #1a1a1a;
+      border-radius: 12px;
+      padding: 28px 24px;
+      transition: border-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .card-emoji {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .card h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    /* ── LAB ── */
+    .lab-section {
+      padding: 60px 0;
+    }
+
+    .lab-section h2 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .lab-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-dimmer);
+      margin-bottom: 32px;
+    }
+
+    .lab-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .lab-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s ease;
+    }
+
+    .lab-item:hover {
+      background: var(--surface);
+    }
+
+    .lab-item:hover .lab-arrow {
+      color: var(--gold);
+      transform: translateX(4px);
+    }
+
+    .lab-emoji {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      width: 32px;
+      text-align: center;
+    }
+
+    .lab-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .lab-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .lab-desc {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+
+    .lab-arrow {
+      color: var(--text-dimmer);
+      font-size: 1rem;
+      flex-shrink: 0;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 60px 0 40px;
+      border-top: 1px solid #1a1a1a;
+      margin-top: 40px;
+    }
+
+    .footer-cta {
+      font-size: 0.88rem;
+      color: var(--text-dimmer);
+      font-style: italic;
+      margin-bottom: 32px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-family: var(--font-body);
+      transition: color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .social-links a:hover {
+      color: var(--gold);
+    }
+
+    .social-links a svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-sig {
+      font-size: 0.72rem;
+      color: var(--text-dimmer);
+      font-family: var(--font-mono);
+    }
+
+    .duck-footer-wrapper {
+      width: 24px;
+      height: 24px;
+      position: relative;
+      opacity: 0.4;
+    }
+
+    .duck-footer {
+      width: 1px;
+      height: 1px;
+      position: relative;
+      transform: scale(2);
+      transform-origin: top left;
+      box-shadow:
+        4px 0 #ffd700, 5px 0 #ffd700, 6px 0 #ffd700,
+        3px 1px #ffd700, 4px 1px #ffd700, 5px 1px #ffd700, 6px 1px #ffd700, 7px 1px #ffd700,
+        3px 2px #ffd700, 4px 2px #ffd700, 5px 2px #111111, 6px 2px #ffd700, 7px 2px #ffd700,
+        3px 3px #ffd700, 4px 3px #ffd700, 5px 3px #ffd700, 6px 3px #ffd700, 7px 3px #ffd700, 8px 3px #ff8c00, 9px 3px #ff8c00,
+        3px 4px #ffd700, 4px 4px #ffd700, 5px 4px #ffd700, 6px 4px #ffd700,
+        0px 5px #ffd700, 1px 5px #ffd700, 2px 5px #ffd700, 3px 5px #ffd700, 4px 5px #ffd700, 5px 5px #ffd700, 6px 5px #ffd700, 7px 5px #ffd700,
+        0px 6px #ffd700, 1px 6px #ffd700, 2px 6px #ffc800, 3px 6px #ffc800, 4px 6px #ffc800, 5px 6px #ffc800, 6px 6px #ffd700, 7px 6px #ffd700, 8px 6px #ffd700,
+        0px 7px #ffd700, 1px 7px #ffc800, 2px 7px #ffc800, 3px 7px #ffc800, 4px 7px #ffc800, 5px 7px #ffc800, 6px 7px #ffc800, 7px 7px #ffd700, 8px 7px #ffd700,
+        1px 8px #ffd700, 2px 8px #ffd700, 3px 8px #ffd700, 4px 8px #ffd700, 5px 8px #ffd700, 6px 8px #ffd700, 7px 8px #ffd700,
+        2px 9px #ff8c00, 3px 9px #ff8c00, 5px 9px #ff8c00, 6px 9px #ff8c00;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero { padding: 80px 0 60px; }
+      .hero-name-row { gap: 12px; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .social-links { gap: 16px; }
+      .footer-bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
+    }
+
+    /* ── FADE IN ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .fade-in:nth-child(1) { animation-delay: 0.1s; }
+    .fade-in:nth-child(2) { animation-delay: 0.2s; }
+    .fade-in:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Section fade */
+    .section-fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .section-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-name-row">
+        <h1>Ricardo Pedroni</h1>
+        <div class="duck-wrapper">
+          <div class="duck-pixel"></div>
+        </div>
+      </div>
+      <div class="tagline">
+        <span id="typewriter"></span><span class="cursor"></span>
+      </div>
+      <p class="available">disponível para problemas interessantes</p>
+    </div>
+  </section>
+
+  <!-- WHAT I DO -->
+  <section class="cards-section section-fade">
+    <div class="container">
+      <div class="cards-grid">
+        <div class="card fade-in">
+          <span class="card-emoji">🏗️</span>
+          <h3>Construo</h3>
+          <p>CTO @ Endaoment. 20+ anos mandando software pro mundo. Crypto, fintech, full-stack.</p>
+        </div>
+        <div class="card fade-in">
+          <span class="card-emoji">🧪</span>
+          <h3>Exploro</h3>
+          <p>Testando IA em público. Separando o que funciona do hype.</p>
+        </div>
+        <div class="card fade-in">
+          <span class="card-emoji">👨‍👦‍👦</span>
+          <h3>Sobrevivo</h3>
+          <p>Pai de 3 meninos. Especialista em logística de mamadeira e deploy simultâneo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE LAB -->
+  <section class="lab-section section-fade">
+    <div class="container">
+      <h2>O que tô explorando</h2>
+      <p class="lab-subtitle">projetos, experimentos e coisas que podem ou não funcionar</p>
+      <div class="lab-list" id="lab-list"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="section-fade">
+    <div class="container">
+      <p class="footer-cta">se você tá construindo algo interessante, às vezes eu ajudo.</p>
+      <div class="social-links">
+        <a href="https://github.com/rpedroni" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://x.com/rpedroni_" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          X / Twitter
+        </a>
+        <a href="https://linkedin.com/in/rpedroni" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://instagram.com/rpedroni" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.882 0 1.441 1.441 0 012.882 0z"/></svg>
+          Instagram
+        </a>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-sig">feito com café e questionamento existencial</span>
+        <div class="duck-footer-wrapper">
+          <div class="duck-footer"></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── LAB DATA (edit this array to update the lab section) ──
+    const labItems = [
+      {
+        emoji: '🔍',
+        title: 'IA do Dia',
+        desc: 'Reviews honestos de ferramentas de IA',
+        url: 'https://instagram.com/rpedroni'
+      },
+      {
+        emoji: '📚',
+        title: 'Lições de IA',
+        desc: 'Conceitos explicados em 60 segundos',
+        url: 'https://instagram.com/rpedroni'
+      },
+      {
+        emoji: '🧪',
+        title: 'Micro-Produtos',
+        desc: 'Experimentos rápidos com IA',
+        url: 'https://rpedroni.github.io'
+      },
+      {
+        emoji: '💀',
+        title: 'Sunset',
+        desc: 'Obituários de IAs que não vingaram',
+        url: null
+      }
+    ];
+
+    // Render lab items
+    const labList = document.getElementById('lab-list');
+    labItems.forEach(item => {
+      const tag = item.url ? 'a' : 'div';
+      const el = document.createElement(tag);
+      el.className = 'lab-item';
+      if (item.url) {
+        el.href = item.url;
+        el.target = '_blank';
+        el.rel = 'noopener';
+      }
+      el.innerHTML = `
+        <span class="lab-emoji">${item.emoji}</span>
+        <div class="lab-content">
+          <div class="lab-title">${item.title}</div>
+          <div class="lab-desc">${item.desc}</div>
+        </div>
+        ${item.url ? '<span class="lab-arrow">→</span>' : '<span class="lab-arrow" style="opacity:0.3">em breve</span>'}
+      `;
+      labList.appendChild(el);
+    });
+
+    // ── TYPEWRITER ──
+    const taglines = [
+      '20 anos construindo software. 4 anos sem dormir.',
+      'CTO de dia. Engenheiro do caos de... dia também.',
+      'Faço coisas que funcionam. Às vezes de propósito.',
+      'Pai de 3 meninos. Especialista em negociar com terroristas.',
+      'Testando toda IA que aparece pra você não precisar.'
+    ];
+
+    const typewriterEl = document.getElementById('typewriter');
+    let taglineIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 50;
+
+    function typewrite() {
+      const current = taglines[taglineIndex];
+
+      if (!isDeleting) {
+        typewriterEl.textContent = current.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === current.length) {
+          isDeleting = true;
+          typeSpeed = 3000; // pause before deleting
+        } else {
+          typeSpeed = 40 + Math.random() * 40;
+        }
+      } else {
+        typewriterEl.textContent = current.substring(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+          isDeleting = false;
+          taglineIndex = (taglineIndex + 1) % taglines.length;
+          typeSpeed = 400;
+        } else {
+          typeSpeed = 25;
+        }
+      }
+
+      setTimeout(typewrite, typeSpeed);
+    }
+
+    typewrite();
+
+    // ── SCROLL REVEAL ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section-fade').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
